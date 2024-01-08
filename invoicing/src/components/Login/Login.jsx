@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const [username, setUsername] = useState("");
+    const [email, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ const Login = () => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ email: username, password: password }),
+                body: JSON.stringify({ email: email, password: password }),
             });
             const responseData = await response.json();
             console.log(responseData)
@@ -42,7 +42,7 @@ const Login = () => {
                         type="text"
                         id="email"
                         className="form-control"
-                        value={username}
+                        value={email}
                         onChange={(e) => setUsername(e.target.value)}
                     />
                 </div>
